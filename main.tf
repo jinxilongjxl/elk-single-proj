@@ -35,7 +35,8 @@ resource "google_compute_instance" "elk_instance" {
 
   boot_disk {
     initialize_params {
-      image = "ubuntu-os-cloud/ubuntu-2004-lts"
+      # 替换为Ubuntu 22.04 LTS镜像（所有区域通用）
+      image = "ubuntu-os-cloud/ubuntu-2204-lts" 
       size  = var.disk_size
       type  = "pd-ssd"
     }
