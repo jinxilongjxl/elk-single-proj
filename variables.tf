@@ -6,25 +6,31 @@ variable "project_id" {
 variable "region" {
   description = "GCP区域"
   type        = string
-  default     = "us-central1"
+  default     = "asia-east1"
 }
 
 variable "zone" {
   description = "GCP可用区"
   type        = string
-  default     = "us-central1-a"
+  default     = "asia-east1-a"
+}
+
+variable "instance_name" {
+  description = "ELK实例名称"
+  type        = string
+  default     = "elk-single-node"
 }
 
 variable "machine_type" {
-  description = "虚拟机类型"
+  description = "虚拟机类型（4核8G）"
   type        = string
-  default     = "e2-medium" # 2vCPU + 4GB内存，适合测试
+  default     = "e2-standard-4"
 }
 
-variable "disk_size" {
+variable "boot_disk_size_gb" {
   description = "磁盘大小（GB）"
   type        = number
-  default     = 50
+  default     = 100
 }
 
 variable "elk_version" {
@@ -33,14 +39,8 @@ variable "elk_version" {
   default     = "8.10.0"
 }
 
-variable "network_name" {
-  description = "VPC网络名称"
+variable "ssh_public_key_path" {
+  description = "本地SSH公钥路径"
   type        = string
-  default     = "elk-network"
-}
-
-variable "subnet_name" {
-  description = "子网名称"
-  type        = string
-  default     = "elk-subnet"
+  default     = "~/.ssh/id_ed25519.pub"
 }
